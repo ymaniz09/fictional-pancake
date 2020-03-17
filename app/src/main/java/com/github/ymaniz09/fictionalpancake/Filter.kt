@@ -16,7 +16,6 @@ object Filter {
         var g: Int
         var b: Int
         var index: Int
-        var threshHold: Int
 
         for (y in 0 until height) {
             for (x in 0 until width) {

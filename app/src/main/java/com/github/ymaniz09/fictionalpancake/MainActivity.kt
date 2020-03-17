@@ -27,9 +27,16 @@ class MainActivity : AppCompatActivity() {
 
             val originalBitmap = originalDeferred.await()
 
-            loadImage(originalBitmap)
+            val filteredDeferred =
+                coroutineScope.async(Dispatchers.Default) { applyFilter(originalBitmap) }
+
+            val filteredBitmap = filteredDeferred.await()
+
+            loadImage(filteredBitmap)
         }
     }
+
+    private fun applyFilter(originalBitmap: Bitmap) = Filter.apply(originalBitmap)
 
     private fun loadImage(bitmap: Bitmap) {
         progressBar.visibility = View.GONE
