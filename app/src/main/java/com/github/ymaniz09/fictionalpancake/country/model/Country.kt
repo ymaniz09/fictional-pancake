@@ -1,4 +1,4 @@
-package com.github.ymaniz09.fictionalpancake.model
+package com.github.ymaniz09.fictionalpancake.country.model
 
 import com.google.gson.annotations.SerializedName
 

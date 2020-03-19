@@ -1,12 +1,12 @@
-package com.github.ymaniz09.fictionalpancake.ui.country
+package com.github.ymaniz09.fictionalpancake.country.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.github.ymaniz09.fictionalpancake.R
-import com.github.ymaniz09.fictionalpancake.model.Country
-import com.github.ymaniz09.fictionalpancake.ui.loadImage
+import com.github.ymaniz09.fictionalpancake.country.model.Country
+import com.github.ymaniz09.fictionalpancake.utils.loadImage
 import kotlinx.android.synthetic.main.item_country.view.*
 
 

@@ -1,4 +1,4 @@
-package com.github.ymaniz09.fictionalpancake.model
+package com.github.ymaniz09.fictionalpancake.filter
 
 import android.graphics.Bitmap
 import android.graphics.Color

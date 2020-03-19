@@ -1,6 +1,6 @@
-package com.github.ymaniz09.fictionalpancake.model.network
+package com.github.ymaniz09.fictionalpancake.country.model.network
 
-import com.github.ymaniz09.fictionalpancake.model.Country
+import com.github.ymaniz09.fictionalpancake.country.model.Country
 import retrofit2.Response
 import retrofit2.http.GET
 

@@ -1,4 +1,4 @@
-package com.github.ymaniz09.fictionalpancake.ui.filter
+package com.github.ymaniz09.fictionalpancake.filter.ui
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
@@ -8,11 +8,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.Fragment
-import androidx.navigation.Navigation.findNavController
 import com.github.ymaniz09.fictionalpancake.R
-import com.github.ymaniz09.fictionalpancake.model.Filter
-import com.github.ymaniz09.fictionalpancake.ui.gone
-import com.github.ymaniz09.fictionalpancake.ui.visible
+import com.github.ymaniz09.fictionalpancake.filter.Filter
+import com.github.ymaniz09.fictionalpancake.utils.gone
+import com.github.ymaniz09.fictionalpancake.utils.visible
 import kotlinx.android.synthetic.main.fragment_filter.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -69,7 +68,8 @@ class FilterFragment : Fragment() {
         }
     }
 
-    private fun applyFilter(originalBitmap: Bitmap) = Filter.apply(originalBitmap)
+    private fun applyFilter(originalBitmap: Bitmap) =
+        Filter.apply(originalBitmap)
 
     private fun loadImage(bitmap: Bitmap) {
         progressBar.gone()

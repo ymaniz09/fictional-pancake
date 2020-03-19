@@ -1,4 +1,4 @@
-package com.github.ymaniz09.fictionalpancake.ui
+package com.github.ymaniz09.fictionalpancake.utils
 
 import android.view.View
 import android.widget.ImageView

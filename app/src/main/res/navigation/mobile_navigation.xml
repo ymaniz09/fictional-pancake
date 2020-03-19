@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.github.ymaniz09.fictionalpancake.ui.home.HomeFragment"
+        android:name="com.github.ymaniz09.fictionalpancake.home.ui.home.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_filter"
-        android:name="com.github.ymaniz09.fictionalpancake.ui.filter.FilterFragment"
+        android:name="com.github.ymaniz09.fictionalpancake.filter.ui.FilterFragment"
         android:label="@string/menu_filter"
         tools:layout="@layout/fragment_filter" />
 
     <fragment
         android:id="@+id/nav_countries"
-        android:name="com.github.ymaniz09.fictionalpancake.ui.country.CountryFragment"
+        android:name="com.github.ymaniz09.fictionalpancake.country.ui.CountryFragment"
         android:label="@string/menu_countries"
         tools:layout="@layout/fragment_country" />
 </navigation>

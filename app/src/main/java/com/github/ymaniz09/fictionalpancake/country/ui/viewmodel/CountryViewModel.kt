@@ -1,9 +1,9 @@
-package com.github.ymaniz09.fictionalpancake.ui.country.viewmodel
+package com.github.ymaniz09.fictionalpancake.country.ui.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.github.ymaniz09.fictionalpancake.model.network.CountriesService
-import com.github.ymaniz09.fictionalpancake.model.Country
+import com.github.ymaniz09.fictionalpancake.country.model.network.CountriesService
+import com.github.ymaniz09.fictionalpancake.country.model.Country
 import kotlinx.coroutines.*
 
 class CountryViewModel : ViewModel() {

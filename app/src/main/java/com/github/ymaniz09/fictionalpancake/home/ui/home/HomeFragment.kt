@@ -1,4 +1,4 @@
-package com.github.ymaniz09.fictionalpancake.ui.home
+package com.github.ymaniz09.fictionalpancake.home.ui.home
 
 import android.os.Bundle
 import android.view.LayoutInflater

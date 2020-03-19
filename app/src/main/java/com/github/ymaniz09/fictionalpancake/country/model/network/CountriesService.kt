@@ -1,4 +1,4 @@
-package com.github.ymaniz09.fictionalpancake.model.network
+package com.github.ymaniz09.fictionalpancake.country.model.network
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
