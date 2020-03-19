@@ -1,51 +1,50 @@
 package com.github.ymaniz09.fictionalpancake
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.view.View
+import android.view.Menu
+import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.google.android.material.snackbar.Snackbar
+import com.google.android.material.navigation.NavigationView
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
-import kotlinx.coroutines.launch
-import java.net.URL
+import androidx.appcompat.widget.Toolbar
 
 class MainActivity : AppCompatActivity() {
 
-    private val IMAGE_URL =
-        "https://raw.githubusercontent.com/DevTides/JetpackDogsApp/master/app/src/main/res/drawable/dog.png"
-    private val coroutineScope = CoroutineScope(Dispatchers.Main)
+    private lateinit var appBarConfiguration: AppBarConfiguration
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
-        coroutineScope.launch {
-            val originalDeferred = coroutineScope.async(Dispatchers.IO) { getOriginalBitmap() }
+        val drawerLayout: DrawerLayout = findViewById(R.id.drawer_layout)
+        val navView: NavigationView = findViewById(R.id.nav_view)
+        val navController = findNavController(R.id.nav_host_fragment)
 
-            val originalBitmap = originalDeferred.await()
-
-            val filteredDeferred =
-                coroutineScope.async(Dispatchers.Default) { applyFilter(originalBitmap) }
-
-            val filteredBitmap = filteredDeferred.await()
-
-            loadImage(filteredBitmap)
-        }
+        appBarConfiguration = AppBarConfiguration(
+            setOf(
+                R.id.nav_home
+            ), drawerLayout
+        )
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
     }
 
-    private fun applyFilter(originalBitmap: Bitmap) = Filter.apply(originalBitmap)
-
-    private fun loadImage(bitmap: Bitmap) {
-        progressBar.visibility = View.GONE
-        imageView.setImageBitmap(bitmap)
-        imageView.visibility = View.VISIBLE
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        menuInflater.inflate(R.menu.demo, menu)
+        return true
     }
 
-    private fun getOriginalBitmap() =
-        URL(IMAGE_URL).openStream().use {
-            BitmapFactory.decodeStream(it)
-        }
+    override fun onSupportNavigateUp(): Boolean {
+        val navController = findNavController(R.id.nav_host_fragment)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
 }
